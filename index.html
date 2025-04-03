@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Instagram Photo Feed con Bootstrap JuanSe</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+
+    <link rel="stylesheet" href="styles.css">
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/boosted/5.3.3/js/boosted.bundle.min.js"
+      integrity="sha512-vg/tYU1LKHqXsIPdZ78n8L6rmEcyk81JwpqQzdXrcvXtcyUQvsVyjycM5LYCyBVZ74YcCgsTPKYjudiOL+5K/w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+  </head>
+
+  <body class="bg-dark">
+    <style>
+      .navbar-custom {
+        background-color: #343a40 !important;
+        /* Color gray-800 */
+      }
+      .nav-pills .nav-link {
+        color: #fff !important;
+      }
+      .nav-pills .nav-link.active {
+        background-color: #007bff !important;
+        /* Color primary */
+      }
+    </style>
+    <nav class="navbar navbar-custom py-3">
+      <div class="container-fluid">
+        <div class="d-flex w-100 justify-content-between">
+          <div>
+            <i class="fa-brands fa-instagram fa-2xl" style="color: #fff"></i>
+            <h5 class="text-light d-inline p-1">Instagram</h5>
+          </div>
+          <div class="d-flex justify-content-end gap-2">
+            <button
+              class="btn-primary rounded"
+              data-bs-toggle="modal"
+              data-bs-target="#createPostModal"
+            >
+              Create a new post
+            </button>
+            <div class="dropdown">
+              <button
+                class="btn btn-secondary dropdown-toggle"
+                type="button"
+                id="dropdownMenuButton2"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                <i class="fa-solid fa-gear fa-xl"></i>
+              </button>
+              <ul
+                class="dropdown-menu dropdown-menu-dark dropdown-menu-end"
+                aria-labelledby="dropdownMenuButton2"
+              >
+                <li><a class="dropdown-item" href="#">Profile</a></li>
+                <li><a class="dropdown-item" href="#">Accesibility</a></li>
+                <li><a class="dropdown-item" href="#">Privacy and Data</a></li>
+                <li>
+                  <hr class="dropdown-divider" />
+                </li>
+                <li>
+                  <a class="dropdown-item text-danger" href="#">Log out</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Modal -->
+    <div class="modal" id="createPostModal" tabindex="-1">
+      <div class="modal-dialog">
+        <div class="modal-content bg-dark text-light">
+          <div class="modal-header">
+            <h5 class="modal-title">Create a new post</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <p>Caption</p>
+            <textarea
+              class="form-control bg-dark text-light mb-2"
+              id="modal-text-area"
+              placeholder="Add the caption of your post here"
+            ></textarea>
+            <button type="button" class="btn btn-dark btn-outline-light">
+              <i class="fa-solid fa-camera"></i>
+            </button>
+            <button type="button" class="btn btn-dark btn-outline-light">
+              <i class="fa-solid fa-location-dot"></i>
+            </button>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+            <button type="button" class="btn btn-success">Publish</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--Tabs-->
+    <div class="container-fluid">
+      <ul class="nav nav-pills justify-content-center" role="tablist">
+        <li class="nav-item" role="presentation">
+          <a
+            class="nav-link active"
+            id="home-tab"
+            data-bs-toggle="tab"
+            data-bs-target="#home"
+            role="tab"
+            aria-controls="home"
+            aria-selected="true"
+          >
+            <i class="fa-solid fa-table"></i>
+          </a>
+        </li>
+        <li class="nav-item" role="presentation">
+          <a
+            class="nav-link"
+            id="profile-tab"
+            data-bs-toggle="tab"
+            data-bs-target="#profile"
+            role="tab"
+            aria-controls="profile"
+            aria-selected="false"
+          >
+            <i class="fa-solid fa-square"></i>
+          </a>
+        </li>
+      </ul>
+      <div class="tab-content" id="myTabContent">
+
+        <!-- 3 Col Tab -->
+        <div class="tab-pane fade show active overflow-hidden" id="home" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
+          <div class="row">
+            <div class="col-lg-4 col-sm-6 col-12 p-1">
+              <img src="https://res.cloudinary.com/dss2g4ea6/image/upload/v1743688974/Mere01_fta7qj.jpg" alt=""   class="img-fluid rounded-3 photo-center " />
+            </div>
+            <div class="col-lg-4 col-sm-6 col-12 p-1">
+              <img src="https://res.cloudinary.com/dss2g4ea6/image/upload/v1743688975/Sunset07_fmwvfj.jpg" alt=""  class="img-fluid rounded-3  photo-bottom" />
+            </div>
+             <div class="col-lg-4 col-sm-6 col-12 p-1">
+              <img src="https://res.cloudinary.com/dss2g4ea6/image/upload/v1743688975/Lake04_p3vhby.jpg" alt=""  class="img-fluid rounded-3 photo-bottom" />
+            </div>
+            <div class="col-lg-4 col-sm-6 col-12 p-1"></div>
+            <div class="col-lg-4 col-sm-6 col-12 p-1"></div>
+          </div>
+          <div class="row">
+            <div class="col-lg-4 col-sm-6 col-12 p-1">
+              <img src="https://res.cloudinary.com/dss2g4ea6/image/upload/v1743688976/Stars05_qz4tdq.jpg" alt=""   class="img-fluid rounded-3 photo-center " />
+            </div>
+            <div class="col-lg-4 col-sm-6 col-12 p-1">
+              <img src="https://res.cloudinary.com/dss2g4ea6/image/upload/v1743688977/Beach08_hszl4n.jpg" alt=""  class="img-fluid rounded-3 photo-center" />
+              
+            </div>
+             <div class="col-lg-4 col-sm-6 col-12 p-1">
+              <img src="https://res.cloudinary.com/dss2g4ea6/image/upload/v1743688975/Mere02_i9r8go.jpg" alt=""  class="img-fluid rounded-3  photo-bottom" />
+            </div>
+            <div class="col-lg-4 col-sm-6 col-12 p-1"></div>
+            <div class="col-lg-4 col-sm-6 col-12 p-1"></div>
+          </div>
+          <div class="row">
+            <div class="col-lg-4 col-sm-6 col-12 p-1">
+              <img src="https://res.cloudinary.com/dss2g4ea6/image/upload/v1743688975/River08_dfrwxe.jpg" alt=""   class="img-fluid rounded-3 photo-center " />
+            </div>
+            <div class="col-lg-4 col-sm-6 col-12 p-1">
+              <img src="https://res.cloudinary.com/dss2g4ea6/image/upload/v1743688975/City06_f1iysl.jpg" alt=""  class="img-fluid rounded-3  photo-bottom" />
+            </div>
+             <div class="col-lg-4 col-sm-6 col-12 p-1">
+              <img src="https://res.cloudinary.com/dss2g4ea6/image/upload/v1743688975/Moon09_rbuya2.jpg" alt=""  class="img-fluid rounded-3 photo-bottom" />
+            </div>
+            <div class="col-lg-4 col-sm-6 col-12 p-1"></div>
+            <div class="col-lg-4 col-sm-6 col-12 p-1"></div>
+          </div>     
+        </div>
+
+        <!-- 1 Col Tab -->
+        <div class="tab-pane fade overflow-hidden" id="profile" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
+          
+          <div class="row my-4">
+            <div class="col-lg-4 col-sm-6 col-12 mx-auto p-2 border border-light-subtle rounded-3">
+              <div class=" d-flex flex-row justify-content-between">
+                <h5 class="text-light">My crazy dog Mango!</h5>
+                <p class="text-light">04/25</p>
+              </div>
+              <div class="row">
+                <img src="https://res.cloudinary.com/dss2g4ea6/image/upload/v1743688974/Mere01_fta7qj.jpg" alt=""   class="img-fluid rounded-3 photo-center " />
+              </div>
+              <div class="row my-2">
+                <span class="text-light fw-bold">29.000 Likes</span>
+                <p class="text-light">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque, possimus laudantium, sequi quis iste ipsum dolores repellendus dolorem labore quibusdam totam architecto facere, commodi ex voluptate. Mollitia minima velit quam.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="row my-4">
+            <div class="col-lg-4 col-sm-6 col-12 mx-auto p-2 border border-light-subtle rounded-3">
+              <div class=" d-flex flex-row justify-content-between">
+                <h5 class="text-light">Beautiful Things</h5>
+                <p class="text-light">04/25</p>
+              </div>
+              <div class="row">
+                <img src="https://res.cloudinary.com/dss2g4ea6/image/upload/v1743688975/Sunset07_fmwvfj.jpg" alt=""   class="img-fluid rounded-3 photo-bottom " />
+              </div>
+              <div class="row my-2">
+                <span class="text-light fw-bold">29.000 Likes</span>
+                <p class="text-light">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque, possimus laudantium, sequi quis iste ipsum dolores repellendus dolorem labore quibusdam totam architecto facere, commodi ex voluptate. Mollitia minima velit quam.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="row my-4">
+            <div class="col-lg-4 col-sm-6 col-12 mx-auto p-2 border border-light-subtle rounded-3">
+              <div class=" d-flex flex-row justify-content-between">
+                <h5 class="text-light">Nice view of the lake</h5>
+                <p class="text-light">04/25</p>
+              </div>
+              <div class="row">
+                <img src="https://res.cloudinary.com/dss2g4ea6/image/upload/v1743688975/Lake04_p3vhby.jpg" alt="" class="img-fluid rounded-3 photo-bottom">              </div>
+              <div class="row my-2">
+                <span class="text-light fw-bold">29.000 Likes</span>
+                <p class="text-light">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque, possimus laudantium, sequi quis iste ipsum dolores repellendus dolorem labore quibusdam totam architecto facere, commodi ex voluptate. Mollitia minima velit quam.</p>
+              </div>
+            </div>
+          </div>
+
+
+          
+          <div class="row my-4">
+            <div class="col-lg-4 col-sm-6 col-12 mx-auto p-2 border border-light-subtle rounded-3">
+              <div class=" d-flex flex-row justify-content-between">
+                <h5 class="text-light">Stars</h5>
+                <p class="text-light">04/25</p>
+              </div>
+              <div class="row">
+                <img src="https://res.cloudinary.com/dss2g4ea6/image/upload/v1743688976/Stars05_qz4tdq.jpg" alt="" class="img-fluid rounded-3 photo-center ">
+              </div>
+              <div class="row my-2">
+                <span class="text-light fw-bold">29.000 Likes</span>
+                <p class="text-light">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque, possimus laudantium, sequi quis iste ipsum dolores repellendus dolorem labore quibusdam totam architecto facere, commodi ex voluptate. Mollitia minima velit quam.</p>
+              </div>
+            </div>
+          </div>
+
+          
+          <div class="row my-4">
+            <div class="col-lg-4 col-sm-6 col-12 mx-auto p-2 border border-light-subtle rounded-3">
+              <div class=" d-flex flex-row justify-content-between">
+                <h5 class="text-light">At beach 🏝️​</h5>
+                <p class="text-light">04/25</p>
+              </div>
+              <div class="row">
+                <img src="https://res.cloudinary.com/dss2g4ea6/image/upload/v1743688977/Beach08_hszl4n.jpg" alt="" class="img-fluid rounded-3 photo-center">
+              </div>
+              <div class="row my-2">
+                <span class="text-light fw-bold">29.000 Likes</span>
+                <p class="text-light">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque, possimus laudantium, sequi quis iste ipsum dolores repellendus dolorem labore quibusdam totam architecto facere, commodi ex voluptate. Mollitia minima velit quam.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="row my-4">
+            <div class="col-lg-4 col-sm-6 col-12 mx-auto p-2 border border-light-subtle rounded-3">
+              <div class=" d-flex flex-row justify-content-between">
+                <h5 class="text-light">🐶​</h5>
+                <p class="text-light">04/25</p>
+              </div>
+              <div class="row">
+                <img src="https://res.cloudinary.com/dss2g4ea6/image/upload/v1743688975/Mere02_i9r8go.jpg" alt="" class="img-fluid rounded-3  photo-bottom">
+              </div>
+              <div class="row my-2">
+                <span class="text-light fw-bold">29.000 Likes</span>
+                <p class="text-light">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque, possimus laudantium, sequi quis iste ipsum dolores repellendus dolorem labore quibusdam totam architecto facere, commodi ex voluptate. Mollitia minima velit quam.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="row my-4">
+            <div class="col-lg-4 col-sm-6 col-12 mx-auto p-2 border border-light-subtle rounded-3">
+              <div class=" d-flex flex-row justify-content-between">
+                <h5 class="text-light">Lets'go for an adventure ​</h5>
+                <p class="text-light">04/25</p>
+              </div>
+              <div class="row">
+                <img src="https://res.cloudinary.com/dss2g4ea6/image/upload/v1743688975/River08_dfrwxe.jpg" alt="" class="img-fluid rounded-3 photo-center ">
+              </div>
+              <div class="row my-2">
+                <span class="text-light fw-bold">29.000 Likes</span>
+                <p class="text-light">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque, possimus laudantium, sequi quis iste ipsum dolores repellendus dolorem labore quibusdam totam architecto facere, commodi ex voluptate. Mollitia minima velit quam.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="row my-4">
+            <div class="col-lg-4 col-sm-6 col-12 mx-auto p-2 border border-light-subtle rounded-3">
+              <div class=" d-flex flex-row justify-content-between">
+                <h5 class="text-light">The City is under us ​</h5>
+                <p class="text-light">04/25</p>
+              </div>
+              <div class="row">
+                <img src="https://res.cloudinary.com/dss2g4ea6/image/upload/v1743688975/City06_f1iysl.jpg" alt="" class="img-fluid rounded-3  photo-bottom">
+              </div>
+              <div class="row my-2">
+                <span class="text-light fw-bold">29.000 Likes</span>
+                <p class="text-light">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque, possimus laudantium, sequi quis iste ipsum dolores repellendus dolorem labore quibusdam totam architecto facere, commodi ex voluptate. Mollitia minima velit quam.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="row my-4">
+            <div class="col-lg-4 col-sm-6 col-12 mx-auto p-2 border border-light-subtle rounded-3">
+              <div class=" d-flex flex-row justify-content-between">
+                <h5 class="text-light">Is that the moon? 😲​ ​</h5>
+                <p class="text-light">04/25</p>
+              </div>
+              <div class="row">
+                <img src="https://res.cloudinary.com/dss2g4ea6/image/upload/v1743688975/Moon09_rbuya2.jpg" alt="" class="img-fluid rounded-3 photo-bottom">
+              </div>
+              <div class="row my-2">
+                <span class="text-light fw-bold">29.000 Likes</span>
+                <p class="text-light">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque, possimus laudantium, sequi quis iste ipsum dolores repellendus dolorem labore quibusdam totam architecto facere, commodi ex voluptate. Mollitia minima velit quam.</p>
+              </div>
+            </div>
+          </div>
+          
+          
+        </div>
+        
+      </div>
+      </div>
+    </div>
+
+    <script
+      src="https://kit.fontawesome.com/57e9cb323f.js"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
